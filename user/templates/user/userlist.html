@@ -1,0 +1,38 @@
+{% extends 'user/base.html' %}
+
+{% block content %}
+
+
+<table class="table table-striped">
+  <thead class="thead-dark">
+
+    <tr>
+      <th scope="col">First</th>
+      <th scope="col">Last</th>
+      <th scope="col">Email</th>
+      <th scope="col">Role</th>
+      <th scope="col"> Edit</th>
+      <th scope="col">Delete</th>
+    </tr>
+  </thead>
+  <tbody>
+    {% for user in users %}
+    <tr>
+    <td> {{user.first_name}} </td>
+    <td>{{user.last_name}}</td>
+    <td>{{user.email}}</td>
+    <td>{{user.admin}}</td>
+    <td> <a href="">Edit/{{user.id}} </a>  </td>
+    <td> <a href="">delete/{{user.id}} </a>  </td>
+
+      {% endfor %}
+
+    </tr>
+  </tbody>
+</table>
+
+
+
+
+{% endblock %}
+
