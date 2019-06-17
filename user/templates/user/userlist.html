@@ -1,7 +1,8 @@
 {% extends 'user/base.html' %}
+{% load static %}
 
 {% block content %}
-
+{% comment %} <link rel="stylesheet"  href="{% static "/css/user.css" %}" > {% endcomment %}
 
 <table class="table table-striped">
   <thead class="thead-dark">
@@ -22,17 +23,19 @@
     <td>{{user.last_name}}</td>
     <td>{{user.email}}</td>
     <td>{{user.admin}}</td>
-    <td> <a href="">Edit/{{user.id}} </a>  </td>
-    <td> <a href="">delete/{{user.id}} </a>  </td>
+    <td> <a href="update/{{user.id}}">Edit/{{user.id}} </a>  </td>
+    <td> <a href="delete/{{user.id}}">delete/{{user.id}} </a>  </td>
 
       {% endfor %}
 
     </tr>
   </tbody>
 </table>
-
-
-
+<a href="/user/create" id="button1" class="button">Add User</a>
+<!--  Modal-->
+<!-- Adding User-->
+ 
+{% comment %} <script src="{% static 'js/user.js' %}"></script> {% endcomment %}
 
 {% endblock %}
 
