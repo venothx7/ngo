@@ -6,8 +6,11 @@
 
 
 <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
-            <h2>User List</h2>
+            <h2>User Management</h2>
 <a href="/user/create" id="button1" class="btn btn-light">Add User</a>
+          <button class="create-book btn btn-primary" type="button" name="button">
+              <span class="fa fa-plus mr-2"></span>Create book</button>
+          
           </div>
 
 <table class="table table-striped">
@@ -20,6 +23,7 @@
       <th scope="col">Role</th>
       <th scope="col"> Edit</th>
       <th scope="col">Delete</th>
+      <th scope="col">Update</th>
     </tr>
   </thead>
   <tbody>
@@ -31,6 +35,9 @@
     <td>{{user.admin}}</td>
     <td> <a href="update/{{user.id}}">Edit/{{user.id}} </a>  </td>
     <td> <a href="delete/{{user.id}}">delete/{{user.id}} </a>  </td>
+    <td> <button type="button" class="update-create btn btn-sm btn-primary" data-id="{% url 'update_user' user.pk %}">
+                          <span class="fa fa-pencil"></span>
+                        </button>  </td>
 
       {% endfor %}
 
@@ -44,3 +51,23 @@
 
 {% endblock %}
 
+{% block extrascripts %}
+  <script type="text/javascript">
+    $(function () {
+      // Create book button
+      $(".create-user").modalForm({formURL: "{% url 'create_user' %}"});
+
+      // Update book buttons
+      $(".update-book").each(function () {
+        $(this).modalForm({formURL: $(this).data('id')});
+      });
+
+
+      // Hide message
+      $(".alert").fadeTo(2000, 500).slideUp(500, function(){
+        $(".alert").slideUp(500);
+      });
+
+    });
+  </script>
+{% endblock extrascripts %}
