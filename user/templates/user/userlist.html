@@ -4,6 +4,12 @@
 {% block content %}
 {% comment %} <link rel="stylesheet"  href="{% static "/css/user.css" %}" > {% endcomment %}
 
+
+<div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
+            <h2>User List</h2>
+<a href="/user/create" id="button1" class="btn btn-light">Add User</a>
+          </div>
+
 <table class="table table-striped">
   <thead class="thead-dark">
 
@@ -31,7 +37,6 @@
     </tr>
   </tbody>
 </table>
-<a href="/user/create" id="button1" class="button">Add User</a>
 <!--  Modal-->
 <!-- Adding User-->
  

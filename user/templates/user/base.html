@@ -6,8 +6,14 @@
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
 <link rel="stylesheet"  type="text/css" href="{% static 'css/base.css' %}" >
 <html>
- 
- <!--   the navbar -->
+    
+  <head>
+    <title> NGO Website </title>
+  </head>
+  <body>
+      <div class="container">
+
+                 <!--   the navbar -->
 <nav class="navbar navbar-expand-md navbar-dark bg-dark sidebarNavigation" data-sidebarClass="navbar-dark bg-dark">
         <div class="container-fluid">
         <a class="navbar-brand" href="#">NGO</a>
@@ -33,24 +39,47 @@
     </nav>
 
 
-    <!--     Side Bar , got from onlineShopping-->
-    <div id="sidebar">
-        <ul>
-            <li> <a href="">User Management </a> </li>
-            <li> <a href="">Event Management </a> </li>
-            <li> <a href="">User View </a> </li>
-        </ul>
-    </div>
+    <div class="container-fluid">
+      <div class="row">
+        <nav class="col-md-2 d-none d-md-block bg-light sidebar">
+          <div class="sidebar-sticky">
+            <ul class="nav flex-column">
+              <li class="nav-item">
+                <a class="nav-link active" href="#">
+                  <span data-feather="home"></span>
+                  User Management <span class="sr-only">(current)</span>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#">
+                  <span data-feather="file"></span>
+                  Event Management
+                </a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#">
+                  <span data-feather="shopping-cart"></span>
+                  User View
+                </a>
+              </li>
+              
+            </ul>
+           
+              
+            </ul>
+          </div>
+        </nav>
 
+        <main role="main" class="col-md-9 ml-sm-auto col-lg-10 px-4">
+          
 
-  <head>
-    <title> NGO </title>
-  </head>
-  <body>
-      <div class="container">
           {% block content %}
           {% endblock %}
-        <br>
+        </main>
+
+
+    </div>
+</div>
      </div>
       
   </body>
